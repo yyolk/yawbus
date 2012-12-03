@@ -1,11 +1,11 @@
 {
-  "name": "subway",
+  "name": "yawbus",
   "description": "A browser-based IRC client with server",
   "keywords": [
     "irc"
   ],
   "author": "David Petersen <davjpetersen@gmail.com>",
-  "version": "0.2.3",
+  "version": "0.2.3-2",
   "main": "./lib/subway.js",
   "bin": {
     "subway": "./subway"
@@ -27,7 +27,7 @@
     "iconv": "1.2.x"
   },
   "noAnalyze": true,
-  "subdomain": "subway",
+  "subdomain": "yawbus",
   "scripts": {
     "start": "subway"
   }
