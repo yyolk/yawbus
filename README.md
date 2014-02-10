@@ -9,21 +9,20 @@ browser disconnects.
 
 Subway is built with [node.js](http://nodejs.org/),
 [node-irc](https://github.com/martynsmith/node-irc)
-and [MongoDB](http://www.mongodb.org/) on the backend,
 and [Backbone.js](http://documentcloud.github.com/backbone/) and
 [jQuery](http://jquery.com/) on the frontend.
 
 Screenshots
 ------------
-![Overview](http://people.oregonstate.edu/~petersed/overview.png)
-![Chat](http://people.oregonstate.edu/~petersed/chat.png)
+![Overview](http://i.imgur.com/pIJr7r7.png)
+![Chat](http://i.imgur.com/vAmbsvf.png)
 
 Installation
 ------------
 
 *Should be something like this, once implemented:*
 
-1. Assuming you already have node.js, npm, and mongo, run:
+1. Assuming you already have node.js, and npm, run:
 
         $ git clone https://github.com/thedjpetersen/subway.git
         $ cd subway
@@ -34,22 +33,9 @@ Installation
 
 3. Launch the web server
 
-        $ node subway
+        $ ./subway
 
 4. Point your browser at `http://localhost:3000/`
-
-
-Deployment
------------
-### Nodejitsu
-To deploy to Nodejitsu, update the `name` and `subdomain` values in `package.json` to the appropriate values for your app. Then:
-
-    $ jitsu databases create mongo subway
-
-Now change the line `mongoose.connect('mongodb://localhost/subway');` in lib/irchandler.js to the connect URI you got back from jitsu. Then:
-
-    $ jitsu env set PORT 80
-    $ jitsu deploy
 
 
 Development
@@ -59,6 +45,20 @@ Discussion about the client takes place on the freenode channel **#subway**, and
 this repository's [Issues](https://github.com/thedjpetersen/subway/issues) page.
 Contributors are welcome and greatly appreciated.
 
+Configuration
+-------------
+
+### Long Polling
+
+If for some reasons you can't establish websockets, (e.g. Heroku, browser
+compatibility) specify the `use_polling` config for your app
+and it will use xhr-polling instead.
+
+### Heroku
+
+Set the following environment vars to your app: 
+
+* USE\_POLLING=1
 
 History
 -------

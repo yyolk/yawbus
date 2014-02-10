@@ -26,7 +26,22 @@ var OverviewView = Backbone.View.extend({
     }
 
     $('.overview_button').bind('click', $.proxy(this.render, this));
+
+    // Load saved settings.
+    this.savedSettings(['nick', 'realName', 'server']);
+
     return this;
+  },
+
+  // Restore any settings saved in localStorage.
+  savedSettings: function(settings) {
+    for (var i in settings) {
+      var setting = settings[i];
+      var s = sessionStorage.getItem(setting);
+      if (s) {
+        $('#connect-' + setting).val(s);
+      }
+    }
   },
 
   connectOnEnter: function(event) {
@@ -55,9 +70,9 @@ var OverviewView = Backbone.View.extend({
     realName = $('#connect-realName').val() || nick,
     secure = $('#connect-secure').is(':checked'),
     selfSigned = $('#connect-selfSigned').is(':checked'),
-    rejoin = $('#connect-rejoin').is(':checked'),
     password = $('#connect-password').val(),
     encoding = $('#connect-encoding').val(),
+    stripColors = $('#connect-stripColors').is(':checked'),
     keepAlive = false;
     
     if (!server) {
@@ -82,17 +97,29 @@ var OverviewView = Backbone.View.extend({
         port: port,
         secure: secure,
         selfSigned: selfSigned,
-        rejoin: rejoin,
         away: away,
         realName: realName,
         password: password,
         encoding: encoding,
+        stripColors: stripColors,
         keepAlive: keepAlive
       };
 
       irc.me = new User(connectInfo);
       irc.me.on('change:nick', irc.appView.renderUserBox);
       irc.socket.emit('connect', connectInfo);
+
+      // Save standard settings in session storage.
+      if ($('#connect-remember').attr('checked')) {
+        sessionStorage.setItem('nick', nick);
+        sessionStorage.setItem('realName', realName);
+        sessionStorage.setItem('server', server);
+      }
+      else {
+        sessionStorage.removeItem('nick');
+        sessionStorage.removeItem('realName');
+        sessionStorage.removeItem('server');
+      }
     }
   },
 

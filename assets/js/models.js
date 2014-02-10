@@ -12,7 +12,7 @@ var Message = Backbone.Model.extend({
     }
 
     //Temporary solution to make unread mentions work again
-    if (this.get('type') === 'message' && this.get('raw').search('\\b' + irc.me.get('nick') + '\\b') !== -1){
+    if ((this.get('type') === 'message' || this.get('type') == 'mode') && this.get('raw').search('\\b' + irc.me.get('nick') + '\\b') !== -1){
       this.set({mention: true});
     }
   },
@@ -68,7 +68,10 @@ var ChatWindow = Backbone.Model.extend({
       signal = true;
     }
     // All PMs & mentions
-    if (signal) this.trigger('forMe', 'message');
+    if (signal) {
+      this.trigger('forMe', 'message');
+      this.trigger('messageNotification', msg);
+    }
   }
 
 });

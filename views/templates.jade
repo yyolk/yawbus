@@ -4,9 +4,11 @@ script(id="chat_application", type="text/html")
       img(src='/assets/images/subway.png')
     h2 Yawbus
       br
-      small IRC client
+      small IRC Client
     #user-box
     #channels
+      #slide-prev.slide
+      #slide-next.slide
   .content
 
 script(id="load_image", type="text/html")
@@ -46,6 +48,9 @@ script(id="overview_connection", type="text/html")
     .control-group
       label(for="connect-realName") Real Name
       input#connect-realName(type="text")
+    .control-group
+      label(for="connect-remember") Remember Me
+      input#connect-remember(type="checkbox",checked="checked")
     .connect-more-options.hide
       .control-group
         label(for="connect-port") Port
@@ -54,14 +59,11 @@ script(id="overview_connection", type="text/html")
         label(for="connect-secure") SSL
         input#connect-secure(type="checkbox")
       .control-group#ssl-self-signed
-        label(for="connect-selfSigned") Self-signed SSL Cert
+        label(for="connect-selfSigned") Allow Self-signed Certs
         input#connect-selfSigned(type="checkbox")
       .control-group
         label(for="connect-away") Away Message
         input#connect-away(type="text", placeholder="AFK")
-      .control-group
-        label(for="connect-rejoin") Bouncer Mode
-        input#connect-rejoin(type="checkbox")
       .control-group
         label(for="connect-encoding") Encoding
         select#connect-encoding
@@ -87,6 +89,9 @@ script(id="overview_connection", type="text/html")
           option(value="CP1251") CP1251 (Cyrillic)
           option(value="CP1256") CP1256 (Arabic)
           option(value="CP1257") CP1257 (baltic)
+      .control-group
+        label(for="connect-stripColors") No Colors
+        input#connect-stripColors(type="checkbox")
     .control-group
       {{#loggedIn}}
       label.checkbox(for="connect-keep-alive", style="width:100%") Keep connection alive after browser closed
@@ -98,7 +103,9 @@ script(id="overview_connection", type="text/html")
 script(id="overview_settings", type="text/html")
   #home_parent
     a.overview_button#home Home
-  p Coming soon.
+  p#settings-soon Coming soon.
+  p#settings-chrome-notifications
+    a(id="chrome-notifications-allow-button", class="btn btn-success", onclick="javascript:window.webkitNotifications.requestPermission();") Enable chrome desktop notifications (will ask for permission)
 
 script(id="overview_login", type="text/html")
   #home_parent
@@ -143,6 +150,8 @@ script(id="chat", type="text/html")
         .titlebar
           span(class='window_title') User List
       #user-list.bar
+    #user-window-toggle
+      img(src="/assets/images/register.svg")
 
 script(id="channel", type="text/html")
   span(class="channel-name") {{name}}
@@ -173,7 +182,7 @@ script(id="link", type="text/html")
   a(target="_blank", href="{{link}}") {{link}}
 
 script(id="image_embed", type="text/html")
-  div
+  div.embed-toggle
     a.hide_embed
       i(class="icon-chevron-up")
     a.show_embed.hide

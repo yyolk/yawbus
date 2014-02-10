@@ -5,10 +5,10 @@ html
     link(href='/assets/images/favicon.ico', rel='icon', type='image/x-icon')
     != css('bootstrap.min')
     != css('subway')
+    != css('subway-mobile')
+    != css('irc-colors')
 
-    script
-      var ENV = '#{env}',
-          PORT = #{port};
+    script(src='/socket.io/socket.io.js')
     != js('client')
     include templates
   body
