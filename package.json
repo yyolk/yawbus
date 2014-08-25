@@ -1,34 +1,47 @@
 {
-  "name": "yawbus",
-  "description": "A browser-based IRC client with server",
+  "name": "subway",
+  "description": "A browser-based IRC client",
   "keywords": [
     "irc"
   ],
   "author": "David Petersen <davjpetersen@gmail.com>",
-  "version": "0.2.3-2",
+  "version": "0.3.5",
   "main": "./lib/subway.js",
   "bin": {
-    "subway": "./subway"
+    "subway": "./subway.js"
   },
   "engines": {
-    "node": ">=0.6.1"
-  },
-  "env": {
-    "PYTHON": "/opt/local/bin/python2.7"
+    "node": ">=0.10.2"
   },
   "dependencies": {
-    "express": "2.5.x",
-    "jade": "0.26.x",
-    "connect-assets": "2.2.x",
-    "irc": "git://github.com/noraesae/node-irc.git",
-    "socket.io": "0.9.x",
-    "mongoose": "2.7.x",
-    "bcrypt": "0.7.x",
-    "iconv": "1.2.x"
+    "async": "0.2.x",
+    "request": "2.33.x",
+    "express": "3.5.x",
+    "irc": "git://github.com/thedjpetersen/node-irc.git",
+    "socket.io": "1.0.x",
+    "bcrypt-nodejs": "0.0.x",
+    "jugglingdb": "0.2.x",
+    "jugglingdb-sqlite3": "0.0.x",
+    "node-uuid": "1.4.x",
+    "bower": "1.3.x",
+    "suspend": "0.4.x",
+    "glob": "3.2.8",
+    "gaze": "0.4.x",
+    "backbone": "1.1.2",
+    "underscore" : "1.6.0",
+    "ejs": "1.0.0",
+    "rework-importer": "git://github.com/thedjpetersen/rework-importer.git",
+
+    "grunt-react": "0.6.x",
+    "grunt-styl": "0.3.x",
+    "grunt-contrib-cssmin": "0.7.x",
+    "grunt-contrib-uglify": "0.3.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-symlink": "0.3.x",
+    "grunt-contrib-jade": "0.9.x",
+    "grunt": "0.4.x"
   },
-  "noAnalyze": true,
-  "subdomain": "yawbus",
   "scripts": {
-    "start": "subway"
+    "start": "./subway.js"
   }
 }
