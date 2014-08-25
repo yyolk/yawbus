@@ -1,1 +1,1 @@
-web: ./subway start
+web: node subway start
