@@ -9,13 +9,14 @@ browser disconnects.
 
 Subway is built with [node.js](http://nodejs.org/),
 [node-irc](https://github.com/martynsmith/node-irc)
-and [Backbone.js](http://documentcloud.github.com/backbone/) and
+and [Backbone.js](http://documentcloud.github.com/backbone/)/ReactJS and
 [jQuery](http://jquery.com/) on the frontend.
 
 Screenshots
 ------------
-![Overview](http://i.imgur.com/pIJr7r7.png)
-![Chat](http://i.imgur.com/vAmbsvf.png)
+
+![Chat](http://i.imgur.com/y56tLP9.png)
+![Settings](http://i.imgur.com/hgwRzHq.png)
 
 Installation
 ------------
@@ -41,58 +42,22 @@ Installation
 Development
 -----------
 
-Discussion about the client takes place on the freenode channel **#subway**, and on
-this repository's [Issues](https://github.com/thedjpetersen/subway/issues) page.
+Discussion about the client takes place on this repository's [Issues](https://github.com/thedjpetersen/subway/issues) page.
 Contributors are welcome and greatly appreciated.
 
-Configuration
--------------
 
-### Long Polling
-
-If for some reasons you can't establish websockets, (e.g. Heroku, browser
-compatibility) specify the `use_polling` config for your app
-and it will use xhr-polling instead.
-
-### Heroku
-
-Set the following environment vars to your app: 
-
-* USE\_POLLING=1
-
-History
+Goals
 -------
 
-Subway is a combination of two projects that started independently
-with a similar technology stack and similar aims:
-
-- [subway-web](https://github.com/thedjpetersen/subway-web) /
-  [subway-server](https://github.com/thedjpetersen/subway-server)
-  by David Petersen
-- [web-irc](https://github.com/akavlie/web-irc) by Aaron Kavlie
-
 Its goals are twofold:
+
 1) Become the best web-based IRC client available
+
 2) Provide a really easy method of persistent IRC connections, available
    from any web browser
 
 The inspiration for Subway was trying to watch a fellow programmer try
 to explain how to set up screen/irssi to a non-technical person.
-
-
-Credits
--------
-
-Major Subway contributors include:
-
-- [David Petersen](https://github.com/thedjpetersen), developer
-- [Aaron Kavlie](https://github.com/akavlie), developer
-- [Eric Barch](https://github.com/ericbarch), developer
-- [HyeonJe Jun](https://github.com/noraesae), developer
-- [Jamie Soar](http://www.jamiesoarmusic.co.uk/), notification sounds
-- Yusuke Kamiyamane, some icons
-
-**The logo right now is a Gowalla icon, we are not planning on keeping this, we are only planning on using it as a placeholder**
 
 
 License
@@ -103,7 +68,7 @@ or directories), this project is covered by the MIT License:
 
 
 The MIT License (MIT)
-Copyright (c) 2011 David Petersen
+Copyright (c) 2014 David Petersen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

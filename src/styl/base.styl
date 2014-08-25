@@ -1,0 +1,98 @@
+*, *::before, *::after
+  box-sizing: border-box
+
+html, body
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  margin: 0
+  padding: 0
+  height: 100%
+  font-size: 14px
+  color: #333333
+
+textarea, input
+  font-size: 0.9em
+  background: #FFF
+  border: 1px solid #DBDFE5
+  border-radius: 3px
+  padding: 10px 15px
+  -webkit-font-smoothing: antialiased
+
+input[type="color"]
+  height: 38px
+  padding: 3px 5px
+  vertical-align: bottom
+
+strong
+  font-weight: 600
+
+.container
+  height: 100%
+  display: flex
+
+main
+  background: whiteSmoke
+  flex: 1
+
+.hide
+  display: none !important
+
+.pointer
+  cursor: pointer
+
+.faux_a
+  &:hover
+    cusor: pointer
+
+.spacing-right
+  margin-right: 5px
+
+textarea.error
+  border: 1px solid #FFC5C5
+
+.badge
+  font-size: 12px
+  color: white
+  padding: 5px
+  border-radius: 4px
+  background: #9696CE
+
+.right
+  float: right
+
+.left
+  float: left
+
+input.error
+  background-color: #F3D7D7
+  border: 1px solid #E2CBCB
+
+input[disabled]
+  background: #DDD
+
+.alert
+  padding: 1px 20px
+  margin: 10px 0
+  border-radius: 5px 
+
+.alert.error
+  background: #B97676
+  color: white
+
+.required
+  border: 1px solid #DFAFAF;
+
+.notificationCheck
+  top: 0;
+  position: absolute;
+  background: #7B8F6C;
+  color: #FFF;
+  vertical-align: middle;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  line-height: 30px;
+
+  &:hover
+    background: #94AC82
+    cursor: pointer
+
